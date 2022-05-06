@@ -60,6 +60,14 @@ wd<<-'D:\\NOAA FILES\\Research\\COCOCHA\\Hake Model\\Base Model Development\\Met
 setwd(wd)
 source('SIM_TIM_editing.r') 
 
+wd<<-'D:\\NOAA FILES\\Research\\COCOCHA\\Hake Model\\Base Model Development\\Metapopulation Scenarios\\_Scenario 4a_Rand Move OM_Time+Age Alt Freq Move EM'
+setwd(wd)
+source('SIM_TIM_editing.r') 
+
+wd<<-'D:\\NOAA FILES\\Research\\COCOCHA\\Hake Model\\Base Model Development\\Metapopulation Scenarios\\_Scenario 4b_Rand Move OM_Time+Age Alt Freq Move EM w Tags'
+setwd(wd)
+source('SIM_TIM_editing.r') 
+
 wd<<-'D:\\NOAA FILES\\Research\\COCOCHA\\Hake Model\\Base Model Development\\Metapopulation Scenarios\\_Scenario 5_Onto Move OM_No Move EM'
 setwd(wd)
 source('SIM_TIM_editing.r') 
@@ -69,6 +77,14 @@ setwd(wd)
 source('SIM_TIM_editing.r') 
 
 wd<<-'D:\\NOAA FILES\\Research\\COCOCHA\\Hake Model\\Base Model Development\\Metapopulation Scenarios\\_Scenario 7_Onto Move OM_Time+Age Move EM'
+setwd(wd)
+source('SIM_TIM_editing.r') 
+
+wd<<-'D:\\NOAA FILES\\Research\\COCOCHA\\Hake Model\\Base Model Development\\Metapopulation Scenarios\\_Scenario 7a_Onto Move OM_Time+Age Alt Freq Move EM'
+setwd(wd)
+source('SIM_TIM_editing.r') 
+
+wd<<-'D:\\NOAA FILES\\Research\\COCOCHA\\Hake Model\\Base Model Development\\Metapopulation Scenarios\\_Scenario 7b_Onto Move OM_Time+Age Alt Freq Move EM w Tags'
 setwd(wd)
 source('SIM_TIM_editing.r') 
 
@@ -84,11 +100,43 @@ wd<<-'D:\\NOAA FILES\\Research\\COCOCHA\\Hake Model\\Base Model Development\\Met
 setwd(wd)
 source('SIM_TIM_editing.r') 
 
+wd<<-'D:\\NOAA FILES\\Research\\COCOCHA\\Hake Model\\Base Model Development\\Metapopulation Scenarios\\_Scenario 10a_DD Move OM_Time+Age Alt Freq Move EM'
+setwd(wd)
+source('SIM_TIM_editing.r') 
+
+wd<<-'D:\\NOAA FILES\\Research\\COCOCHA\\Hake Model\\Base Model Development\\Metapopulation Scenarios\\_Scenario 10b_DD Move OM_Time+Age Alt Freq Move EM w Tags'
+setwd(wd)
+source('SIM_TIM_editing.r') 
+
 wd<<-'D:\\NOAA FILES\\Research\\COCOCHA\\Hake Model\\Base Model Development\\Metapopulation Scenarios\\_Scenario 11_Age-1 Move Only OM_No Move EM'
 setwd(wd)
 source('SIM_TIM_editing.r') 
 
 wd<<-'D:\\NOAA FILES\\Research\\COCOCHA\\Hake Model\\Base Model Development\\Metapopulation Scenarios\\_Scenario 12_Age-1 Move Only OM_Age Move EM'
+setwd(wd)
+source('SIM_TIM_editing.r') 
+
+wd<<-'D:\\NOAA FILES\\Research\\COCOCHA\\Hake Model\\Base Model Development\\Metapopulation Scenarios\\_Scenario 13_Double Longevity_Rand Move OM_No Move EM'
+setwd(wd)
+source('SIM_TIM_editing.r') 
+
+wd<<-'D:\\NOAA FILES\\Research\\COCOCHA\\Hake Model\\Base Model Development\\Metapopulation Scenarios\\_Scenario 14_Double Longevity_Rand Move OM_Time+Age Alt Freq Move EM'
+setwd(wd)
+source('SIM_TIM_editing.r') 
+
+wd<<-'D:\\NOAA FILES\\Research\\COCOCHA\\Hake Model\\Base Model Development\\Metapopulation Scenarios\\_Scenario 15_Double Time Series_Rand Move OM_No Move EM'
+setwd(wd)
+source('SIM_TIM_editing.r') 
+
+wd<<-'D:\\NOAA FILES\\Research\\COCOCHA\\Hake Model\\Base Model Development\\Metapopulation Scenarios\\_Scenario 16_Double Time Series_Rand Move OM_Time+Age Alt Freq Move EM'
+setwd(wd)
+source('SIM_TIM_editing.r') 
+
+wd<<-'D:\\NOAA FILES\\Research\\COCOCHA\\Hake Model\\Base Model Development\\Metapopulation Scenarios\\_Scenario 17_Double Long+Time_Rand Move OM_No Move EM'
+setwd(wd)
+source('SIM_TIM_editing.r') 
+
+wd<<-'D:\\NOAA FILES\\Research\\COCOCHA\\Hake Model\\Base Model Development\\Metapopulation Scenarios\\_Scenario 18_Double Long+Time_Rand Move OM_Time+Age Alt Freq Move EM'
 setwd(wd)
 source('SIM_TIM_editing.r') 
 
