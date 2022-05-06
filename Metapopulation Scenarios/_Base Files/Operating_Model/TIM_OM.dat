@@ -360,7 +360,7 @@
   # determine whether to perform tagging calcs in OM
   #==0 do not calculate tagging data
   #==1 calculate tagging data
-0
+1
 
 #number_tags_switch
    # determines how total tags are determined and how they are distributed across regions
@@ -377,7 +377,7 @@
    #==7 opportunistic tagging based on min/max tags and no tagging in some years and regions, yearly tags are randomly (uniformly) distributed based on max and min number of tags per region AND
       # prob that tagging occurs in a given year is based on opport_tag_year_prob and a uniform distributed random number AND
       # prob that tagging occurs in a given region is based on opport_tag_prob and a uniform distributed random number (random tagging by area and year)      
--1
+1
 
 #age_dist_tags
    # determines how tags are distributed across ages
@@ -509,7 +509,7 @@
   # number of years with tag release events
   # NOTE: IF WANT A ONE TIME RELEASE EVENT NEED TO USE DUMMY RELEASE EVENTS (ie, 0 tags released) for at least 1 other years TO AVOID ERRORS IN MAKING ARRAYS (i.e., 1-dim arrays cause errors)
         # EM automatically gives release events with 0 releases no weight so won't fit the dummy release events
-7
+12
 
 #yrs_releases (1,nyrs_release)
   # vector containing the model years with tag releases
@@ -521,18 +521,27 @@
 5
 6
 7
-
+8
+9
+10
+11
+12
 #input_ntags (1,np,1,nreg,1,ny_rel)
   # input number of tag releases by region and year
-2000 2000 2000 2000 2000 2000 2000
-2000 2000 2000 2000 2000 2000 2000
+2000 2000 2000 2000 2000 2000 2000 2000 2000 2000 2000 2000
+2000 2000 2000 2000 2000 2000 2000 2000 2000 2000 2000 2000
 
 #input_total_tags (1,nyr_rel)
   # input total tag releases across entire domain by year
-5000 5000 5000 5000 5000 5000 5000
+5000 5000 5000 5000 5000 5000 5000 5000 5000 5000 5000 5000
 
 #frac_total_abund_tagged (1,nyr_rel)
   # proportion of total abundance that is tagged in each release year
+0.15
+0.15
+0.15
+0.15
+0.15
 0.15
 0.15
 0.15
@@ -565,19 +574,35 @@
 
 #age_full_selection
   # age used to compute tag dynamics (F and T) when fitting by region cohort (not age cohort) and OM tag dynamics match EM
-8
+3
 
 #report_rate(1,np,1,ny_rel,1,nreg)
   # tag reporting rate (assume constant for all recaptures within a given release cohort, but can be variable across populations or regions)
   # FUTURE:  allow variation across fleets instead
-0.7 0.7
-0.7 0.7
-0.7 0.7
-0.7 0.7
-0.7 0.7
-0.7 0.7
-0.7 0.7
-
+0.85
+0.85
+0.85
+0.85
+0.85
+0.85
+0.85
+0.85
+0.85
+0.85
+0.85
+0.85
+0.7
+0.7
+0.7
+0.7
+0.7
+0.7
+0.7
+0.7
+0.7
+0.7
+0.7
+0.7
 
 #F_tag_scalar (1,ny_rel)
  # scalar applied to F when incomplete tag mixing assumed (MUST BE >= 0)
@@ -589,6 +614,11 @@
 0.78
 0.77
 0.73
+0.75
+0.72
+0.79
+0.74
+0.78
 
 #T_tag_res (1, ny_rel)
  # The residency rate for tagged fish in year of release, movement rates are equal to (1-T_tag_res)/sum(nregions) OR the scalar determined by the DD parameters if DD movement turned on
@@ -599,6 +629,11 @@
 0.98
 0.95
 0.94
+0.97
+0.99
+0.93
+0.96
+0.98
 
 #############################################################################################################################################
 ######################### Movement Parameter Inputs #########################################################################################
@@ -686,13 +721,13 @@
   # for age-based T just vary these inputs by age
 0.9	0.1
 0.8	0.2
-0.85	0.15
-0.9	0.1
-0.95	0.05
+0.75	0.25
+0.7	0.3
+0.65	0.35
+0.05     0.95
 0.1     0.9
-0.2     0.8
-0.2     0.8
-0.15     0.85
+0.1     0.9
+0.1     0.9
 0.1     0.9
 
 #input_T_year (1,np,1,nreg,1,ny,1,np,1,nreg
@@ -1197,7 +1232,7 @@
 #SIM_ntag (number)
   # multinomial effective sample size for tagging data
   # NOTE: assume constant across cohorts, usually set this much below actual sample size (number of tags released), otherwise observation error is much too low
-200
+100
 
 
 #*******************************************************************************************************************************************************************************************************
@@ -1341,7 +1376,7 @@
 
 #ph_T_CNST_AGE
   # estimate an age-varying and time-invariant movement rate
--6
+-5
 
 #ph_T_CNST_AGE_no_AG1
  # estimate an age-varying and time-invariant movement rate, but fix age-1 movement at 100% residency; may be useful when little data to estimate age-1 movement
@@ -1349,7 +1384,7 @@
 
 #ph_T_YR
   # estimate a yearly and age-invariant movement rate 
-5
+-5
 
 #ph_T_YR_ALT_FREQ
  # estimate a yearly and age-invariant movement rate, but with time blocks (interval width) based on T_est_freq (number of year parameters is nyrs/T_est_freq, rounded up) 
@@ -1357,7 +1392,7 @@
 
 #ph_T_YR_AGE
   # estimate a yearly and age-varying movement rate (i.e., a movement parameter for every year AND every age); this is likely to cause model instability given high number of freely estimated parameters
--6
+-5
 
 #ph_T_YR_AGE_no_AG1
   # estimate a yearly and age-varying movement rate, but fix age-1 movement at 100% residency; may be useful when little data to estimate age-1 movement
@@ -1369,7 +1404,7 @@
      # NOTE: number of year parameters is nyrs/T_est_freq, rounded up
      # NOTE: can also input an age, juv_age, at/below which all Ts are set to the estimated movement rate for age-1 in that timeblock
      # NOTE: IF juv_age HIGHER THAN OLDEST AGE ASSOCIATED WITH 2nd AGE CLASS ESTIMATED PARAMETER THEN WILL HAVE UNUSED MOVEMENT PARAMETERS AND CONVERGENCE ISSUES (e.g., if nages==4, T_est_age_freq=2, and juv_age==4, THEN will est 2 T parameters (4/2) but age-1 T will be applied to all ages, so 2nd T parameter est but not used)
--5
+5
 
 #ph_T_YR_AGE_ALT_FREQ_no_AG1
   # estimate an age+time-varying movement rate, but with age+time blocks (interval width) based on T_est_age_freq and T_est_freq, AND fix age-1 movement at 100% residency
@@ -1624,7 +1659,7 @@
   # determine whether to perform tagging calcs in EM
   #==0 do not calculate tagging data
   #==1 calculate tagging data
-0
+1
 
 #tag_fit_ages_switch
    # determines whether tags are fit by age cohorts or by region-only cohorts in the ESTIMATION MODEL
@@ -1753,7 +1788,7 @@
   # defines interval width (ie, yearly time blocks) for movement estimation (number of year movement parameters is nyrs/T_est_freq, rounded up)
   # NOTE: used when move_switch_EM==2 AND ph_T_YR_ALT_FREQ>0 OR ph_T_YR_AGE_ALT_FREQ>0 OR ph_T_YR_AGE_ALT_FREQ_no_AG1>0
   # eg., T_est_freq=2 implies estimating movement in 2 year timeblocks (1 movement parameter for every other year)
-1
+4
 
 #T_est_age_freq
   # defines interval width (ie, age time blocks) for movement estimation (number of age parameters is nages/T_age_freq, rounded up)
@@ -1778,7 +1813,7 @@
 #T_start
   # initial estimate for movement parameters in logit transform space
   # NOTE: for 2 pops ==-2 gives ~90% residency, for 3 pops ==-3 gives ~60% residency
--1.25
+-2
 
 #input_T_EM (1,np_em,1,nreg_em,1,na,1,np_em,1,nreg_em)
   # age based movement for EM, used when move_switch_EM==(-1); for fixed movement that differs from true movement
@@ -2111,7 +2146,7 @@
 
 #wt_tag
   # maximum likelihood added weight for tag recapture data
-0
+1
 
 #################################################################################################################################
 ### penalty function parameters
@@ -2127,12 +2162,12 @@
  # determines whether to implement a penalty for R_ave (R0) estimation
  #==0 no Rave penalty
  #==1 implement penalty on R_ave estimation using norm2 to penalize deviations from Rave_mean in log-space, wt_Rave_pen must be >0
-1
+0
 
 #wt_Rave_pen
   # maximum likelihood penalty function weight for recruitment R_ave estimation
   # NOTE: used with Rave_pen_switch==1
-1
+0
 
 #Rave_mean
   # value of R_ave (R0) against which to penalize deviations from in log-space; used with Rave_pen_switch==1 AND wt_Rave_pen>0
@@ -2169,7 +2204,7 @@
 
 #mean_N
   # value of initial abundance against which to penalize deviations from in log-space; used with abund_pen_switch==1 AND wt_abund_pen>0
-5
+8
 
 #init_abund_dist_pen_switch
  # determines whether to implement a penalty for initial abundance distribution estimation
@@ -2198,12 +2233,12 @@
 #wt_move_pen
   # maximum likelihood penalty function weight for movement estimation
   # NOTE: used with move_pen_switch==1 OR 2
-0.1
+0.5
 
 #Tpen
   # value of movement against which to penalize deviations from in logit transform-space; used with move_pen_switch==1 OR 2 AND wt_move_pen>0
   # NOTE: for 2 populations -1.5 centers mean on ~80% residency (~20% movement) and for 3 populations around 70% residency (15% movement to each population)
--1.25
+-2
 
 #sigma_Tpen_EM
   # movement variance term that controls deviations from Tpen; used when move_pen_switch==2 AND wt_move_pen>0
@@ -2263,20 +2298,30 @@
 100 100 100 100 100 100 100 100 100 100 100 100 
 #tag_N_EM (1,np_em,1,nreg_em,1,ny_rel,1,na)
   # assumed multinomial effective sample size for the tagging data (effective N applies to a given cohort)
-200	200	200	200	200
-200	200	200	200	200
-200	200	200	200	200
-200	200	200	200	200
-200	200	200	200	200
-200	200	200	200	200
-200	200	200	200	200
-200	200	200	200	200
-200	200	200	200	200
-200	200	200	200	200
-200	200	200	200	200
-200	200	200	200	200
-200	200	200	200	200
-200	200	200	200	200
+100 100 100 100 100
+100 100 100 100 100
+100 100 100 100 100
+100 100 100 100 100
+100 100 100 100 100
+100 100 100 100 100
+100 100 100 100 100
+100 100 100 100 100
+100 100 100 100 100
+100 100 100 100 100
+100 100 100 100 100
+100 100 100 100 100
+100 100 100 100 100
+100 100 100 100 100
+100 100 100 100 100
+100 100 100 100 100
+100 100 100 100 100
+100 100 100 100 100
+100 100 100 100 100
+100 100 100 100 100
+100 100 100 100 100
+100 100 100 100 100
+100 100 100 100 100
+100 100 100 100 100
 
 #############################################################################################################################################
 ######################### Random Number Generator Seed Inputs ###############################################################################
